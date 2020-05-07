@@ -1,0 +1,24 @@
+- name: install mysql
+  apt:
+    pkg:
+      - mysql-server
+      - python-mysqldb
+      - php-mysql
+    state: present
+
+- name: start mysql service
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+    - mysql
+
+- name: Create a test database
+  mysql_db:
+    name: prod_database
+    state: present
+
+- name: Create a new user for connections
+  mysql_user: 
+    name: root
+    password: root
+    priv: '*.*:ALL'
+    state: present

@@ -1,0 +1,5 @@
+[remote_server]
+192.168.33.10 ansible-connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+
+[vars:all]
+database_name

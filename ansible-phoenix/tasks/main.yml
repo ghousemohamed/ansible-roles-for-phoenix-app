@@ -1,0 +1,11 @@
+- name: go to dir
+  raw: cd /vagrant && cd test_app
+
+- name: install hex
+  raw: mix local.hex --force
+
+- name: install rebar
+  raw: mix local.rebar --force
+
+- name: install phoenix
+  raw: yes 'y' | wget https://github.com/phoenixframework/archives/raw/master/phx_new.ez && yes 'y' | mix archive.install ./phx_new.ez

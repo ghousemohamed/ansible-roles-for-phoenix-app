@@ -1,0 +1,16 @@
+- name: gpg key for erlang
+  apt_key:
+    url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+    state: present
+
+- name: add erlang repository
+  apt_repository:
+    repo: deb https://packages.erlang-solutions.com/ubuntu xenial contrib
+    state: present
+
+- name: install packages
+  apt:
+    pkg: ['erlang', 'elixir']
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600

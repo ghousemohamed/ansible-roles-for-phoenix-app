@@ -1,0 +1,22 @@
+---
+
+- hosts: remote_server
+  gather_facts: yes
+  become: yes
+
+  pre_tasks:
+    - name: install python
+      raw: sudo apt-get -y install python-minimal
+
+    - action: setup
+
+  vars:
+    NODEJS_VERSION: "12"  
+    ansible_distribution_release: "xenial"
+
+  roles:
+    - ansible-nodejs
+    - ansible-erlang-elixir
+    - ansible-phoenix
+    - ansible-mysql
+    - ansible-deploy-app

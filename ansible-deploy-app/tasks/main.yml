@@ -1,0 +1,2 @@
+- name: set env variables
+  raw: cd /vagrant && cd test_app && ./main.sh
